@@ -1,3 +1,9 @@
+#AND v1
+
+`Fitbit` clockface for `ionic` and `versa`
+(https://gam.fitbit.com/gallery/clock/cf3cd90a-aac5-4dd4-8125-bad2b229cc57)
+
+
 0.0.1-rc-0.0.10
 Minimal mode added
 BMI. BMR Barometer reading visibitly can be changed
