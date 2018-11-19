@@ -1,4 +1,4 @@
-#AND v1
+# AND v1
 
 `Fitbit` clockface for `ionic` and `versa`
 (https://gam.fitbit.com/gallery/clock/cf3cd90a-aac5-4dd4-8125-bad2b229cc57)
@@ -29,9 +29,9 @@ Barometer reading from the sensor added for display in kPa
 
 The clock face is a customised version built on the work available from `anha1` on Github for Acid Clock Face (https://github.com/anha1/fitbit-acidclock).
 
-#Screenshots
+# Screenshots
 
-##ionic
+## ionic
 <br/>
 ![ionic](screenshot/ionic/ionic_1.jpg)<br/>
 ![ionic](screenshot/ionic/ionic_2.jpg)<br/>
@@ -47,7 +47,7 @@ The clock face is a customised version built on the work available from `anha1` 
 ![ionic](screenshot/ionic/ionic_12.jpg)<br/>
 
 
-##versa
+## versa
 <br/>
 ![versa](screenshot/versa/versa_1.jpg)<br/>
 ![versa](screenshot/versa/versa_2.jpg)<br/>
