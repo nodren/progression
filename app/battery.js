@@ -14,7 +14,7 @@ export const screenWidth = root.width
 export function drawBat() {
   let level = battery.chargeLevel;
   let batteryPercentage = Math.floor(level);
-  let lineWidth = Math.floor(screenWidth*(batteryPercentage/100));
+  let lineWidth = Math.floor(31*(batteryPercentage/100));
   if (batteryPercentage >= 75)
   {
     batteryLine.style.fill = "lime";

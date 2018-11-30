@@ -2,6 +2,7 @@
   
  
   <rect id="background" /> 
+  <!-- <image id="background-image" href="bg.png" /> -->
 
   <g id="hr"> 
     <text id="hr-count" class="count sideCount">56</text>
@@ -12,18 +13,21 @@
        <text id="hr-zone" class="count sideCount">56</text>
       </g>
   </g> 
-  
-  <g id="bm">
-    <text id="bmr-zone">259</text>
-    <text id="bmi-zone">259</text>
-   
-   </g>
-  
-  <g id="barometer">
-     <text id="barom-zone"></text>
-    <image id="barom-icon" class="bar-icon" href="reading_barometer_42px.png" />
+
+  <g id="weather">
+    <image id="weatherImage" x="21" width="30" height="30" href="" load="sync"/>
+    <text id="weatherTempLabel" text-length="55" />
+    <text id="weatherConditionLabel" text-length="55" />
+    <text id="weatherLocationLabel" text-length="55" />
   </g>
- 
+
+  <g id="time-progress">
+    <rect class="bg"/>  
+    <circle class="tgt-no"/>  
+    <circle class="tgt-yes"/>  
+    <rect class="progress"/>    
+    <image id="calories-icon" class="icon" href="stat_duration_32px_p.png" />
+  </g> 
   <g id="steps">
     <rect class="bg"/>  
     <circle class="tgt-no"/>  
@@ -48,14 +52,6 @@
     <text class="count">777</text>
     <image id="elevationGain-icon" class="icon" href="stat_floors_solid_24px.png" />
   </g>
-  <g id="calories">
-    <rect class="bg"/>  
-    <circle class="tgt-no"/>  
-    <circle class="tgt-yes"/>  
-    <rect class="progress"/>    
-    <text class="count">777</text>
-    <image id="calories-icon" class="icon" href="stat_cals_solid_24px.png" />
-  </g> 
   <g id="activeMinutes">
     <rect class="bg"/>  
     <circle class="tgt-no"/>  
@@ -65,14 +61,18 @@
     <image id="activeMinutes-icon" class="icon" href="stat_am_solid_24px.png" />
   </g>
   
-  <g>
-  <rect id="battery-line" x="0%" y="0%" width="100%" height="2%" fill="fb-white" />
-  </g>
+  <image id="battery-icon" href="battery.png" />
+  <rect id="battery-line" width="32" fill="fb-white" />
+
+  
+  <!-- <g>
+     <rect id="time-line" x="0%" y="0%" width="100%" height="2%" fill="steelblue" />
+  </g> -->
   
   
   <text id="am-pm"/>
   <text id="time"/>
-    <text id="second"/>
+  <text id="second"/>
   
   <g id="calendar">
     <text id="day"/>

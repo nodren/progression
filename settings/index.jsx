@@ -1,11 +1,11 @@
 function mySettings(props) {
   let colorSet = [
-  {color: "#FF00FF"},   
-  {color: "#FFFF00"},  
-  {color: "#00FFFF"},  
-  {color: "#FF0000"},  
-  {color: "#00FF00"},  
-  {color: "#0000FF"},  
+  {color: "#FF00FF"},
+  {color: "#FFFF00"},
+  {color: "#00FFFF"},
+  {color: "#FF0000"},
+  {color: "#00FF00"},
+  {color: "#0000FF"},
     
   {color: "white"} ,
   {color: 'black'},
@@ -22,37 +22,36 @@ function mySettings(props) {
   {color: 'lightseagreen'},
     
   {color: 'salmon'},
-  {color: '#00FA9A'},  
-  {color: 'darkred'},  
-  {color: 'darkslategrey'},      
+  {color: '#00FA9A'},
+  {color: 'darkred'},
+  {color: 'darkslategrey'},
   {color: 'darkorchid'},
   {color: 'darkorange'},
     
   {color: 'lightsteelblue'},
   {color: 'skyblue'},
   {color: '#8B4513'},
-  {color: 'khaki'}, 
-  {color: 'palegoldenrod'},  
+  {color: 'khaki'},
+  {color: 'palegoldenrod'},
   {color: 'navy'},
     
   {color: 'deeppink'},
   {color: 'royalblue'},
   {color: 'orangered'},
-  {color: 'greenyellow'}, 
-  {color: 'tomato'},  
+  {color: 'greenyellow'},
+  {color: 'tomato'},
   {color: 'forestgreen'},
     
   {color: '#00163a'},
   {color: '#21003a'},
   {color: '#3a1d00'},
-  {color: '#969696'}, 
-  {color: '#494949'}, 
+  {color: '#969696'},
+  {color: '#494949'},
   {color: '#2d2d2d'}
 
 ];
   return (
     <Page>
- 
       
       <Select
       label="Language"
@@ -65,14 +64,14 @@ function mySettings(props) {
         {value:"fr", name:"French"},
         {value:"es", name:"Spanish"},
         {value:"nb", name:"Norwegian"},
-        {value:"sv", name:"Swedish"},        
+        {value:"sv", name:"Swedish"},
         {value:"hu", name:"Hungarian"},
         {value:"pl", name:"Polish"},
         {value:"uk", name:"Ukrainian"},
-        {value:"ru", name:"Russian"},      
+        {value:"ru", name:"Russian"},
         {value:"zh", name:"Chinese"},
-        {value:"ja", name:"Japanese"},          
-        {value:"ko", name:"Korean"},   
+        {value:"ja", name:"Japanese"},
+        {value:"ko", name:"Korean"},
         {value:"sw", name:"Swahili"}
       ]}
       />
@@ -86,6 +85,15 @@ function mySettings(props) {
         {name:"kilometers", value:"km"},
         {name:"feet", value:"ft"},
         {name:"miles", value:"mi"},
+      ]}
+      />
+      
+      <Select
+      label="Temperature Unit"
+      settingsKey="temperatureUnit"
+      options={[
+        {name:"Fahrenheit", value:"f"},
+        {name:"celsius", value:"c"},
       ]}
       />
       
@@ -104,21 +112,6 @@ function mySettings(props) {
          label="AM/PM indication on 12-hour clock"
       />
       
-       <Toggle
-         settingsKey="BMRVis"
-         label="BMR Visibility"
-      />
-      
-      <Toggle
-         settingsKey="BMIVis"
-         label="BMI Visibility"
-      />
-      
-      <Toggle
-         settingsKey="BaromVis"
-         label="Barometer Reading Visibility"
-      />
-      
       <Section
         title="Time color">
         <ColorSelect
@@ -133,6 +126,14 @@ function mySettings(props) {
           colors={colorSet} />
       </Section>
       
+
+      <Section
+        title="Time progressbar color">
+        <ColorSelect
+          settingsKey="timeProgressColor"
+          colors={colorSet} />
+      </Section>
+
       <Section
         title="Steps color">
         <ColorSelect
@@ -151,13 +152,6 @@ function mySettings(props) {
         title="Elevation color">
         <ColorSelect
           settingsKey="elevationGainColor"
-          colors={colorSet} />
-      </Section>
-       
-      <Section
-        title="Calories color">
-        <ColorSelect
-          settingsKey="caloriesColor"
           colors={colorSet} />
       </Section>
       

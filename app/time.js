@@ -1,15 +1,17 @@
 import document from "document";
 import * as util from "../common/utils";
 import { preferences } from "user-settings";
+import { batteryLine } from "./battery";
 
 export let root = document.getElementById('root')
 export const screenHeight = root.height //250 - Ionic, 300 - Versa
 export const screenWidth = root.width
 
+export let timeProgress = document.getElementById("time-progress")
 export let timeEl = document.getElementById("time");
 export let secEl = document.getElementById("second");
 export let amPmEl = document.getElementById("am-pm");
-export let isAmPm = false;
+export let isAmPm = true;
 export function setIsAmPm(val) { isAmPm = val}
 
 //Time Draw - START
@@ -23,7 +25,8 @@ export function drawTime(now) {
   let secs = util.zeroPad(now.getSeconds());
   timeEl.text = `${hours}:${mins}`;
   secEl.text = `${secs}`;
-  
+
+  drawTimeProgress(now);
 }
 
 export function setHours(now) {
@@ -44,7 +47,7 @@ export function setHours(now) {
     amPmEl.style.display= 'inline';
     amPmEl.text = amPm;
     setDeviceTypeAmPmPosition();
-    hours = util.zeroPad(hours % 12 || 12);    
+    hours = hours % 12 || 12;
   } else {
     // 24h format
     timeEl.x = screenWidth-5;
@@ -77,5 +80,18 @@ export function setDeviceTypeAmPmPosition() {
   
 }
 
+export let timeLine = document.getElementById("time-line");
+
+export function drawTimeProgress(now) {
+
+  let progressWidth = timeProgress.getElementsByClassName("bg")[0].getBBox().width;
+  // let level = battery.chargeLevel;
+  let seconds = now.getHours() * 60 * 60;
+  seconds += now.getMinutes() * 60;
+  seconds += now.getSeconds()
+  let timePercentage = Math.floor((seconds / 86400) * 100);
+  let lineWidth = Math.floor(progressWidth*(timePercentage/100));
+  timeProgress.getElementsByClassName("progress")[0].width = lineWidth
+}
 
 //Time Draw - END

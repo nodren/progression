@@ -8,14 +8,13 @@ import { me as appbit } from "appbit";
 import { me as device } from "device";
 import { locale } from "user-settings";
 
-import * as bm from "./bm.js";
 import * as date from "./date.js"
 import * as battery from "./battery.js"
 import * as time from "./time.js"
 import * as hr from "./hr.js"
 import * as activity from "./activity.js"
 import * as state from "./state.js"
-import * as barom from "./barometer.js"
+import * as weather from "./weather.js"
 
 
 // SETTINGS
@@ -40,53 +39,49 @@ export function applySettings() {
       time.timeEl.style.fill = settings.timeColor;
     }
     
+    weather.setTemperatureUnit((settings.hasOwnProperty("temperatureUnit") && settings.temperatureUnit.values) ? settings.temperatureUnit.values[0].value : "f");
+    
     if (settings.hasOwnProperty("isAmPm")) {
-      time.setIsAmPm(!!settings.isAmPm); 
-    } 
+      time.setIsAmPm(!!settings.isAmPm);
+    }
     
     if (settings.hasOwnProperty("hearRateZoneVis")) {
-       hr.setHrZoneVis(!!settings.hearRateZoneVis); 
-    } 
+       hr.setHrZoneVis(!!settings.hearRateZoneVis);
+    }
     
-    if (settings.hasOwnProperty("BMIVis")) {
-       bm.setBMIVis(!!settings.BMIVis); 
-    } 
-    
-    if (settings.hasOwnProperty("BMRVis")) {
-      bm.setBMRVis(!!settings.BMRVis); 
-    } 
-    
-    if (settings.hasOwnProperty("BaromVis")) {
-      barom.setBaromVis(!!settings.BaromVis); 
-    } 
-
     if (settings.hasOwnProperty("dateColor") && settings.dateColor) {
       date.dateEl.style.fill = settings.dateColor;
     }
 
     if (settings.hasOwnProperty("isFastProgress")) {
-      activity.isFastProgressSet(!!settings.isFastProgress);    
+      activity.isFastProgressSet(!!settings.isFastProgress);
     }
 
     if (settings.hasOwnProperty("isHeartbeatAnimation")) {
-      hr.isHeartbeatAnimationSet(!!settings.isHeartbeatAnimation); 
-    }       
-          
+      hr.isHeartbeatAnimationSet(!!settings.isHeartbeatAnimation);
+    }
+
 
     if (settings.hasOwnProperty("otherLabelsColor") && settings["otherLabelsColor"]) {
        var otherLabelsColor = settings["otherLabelsColor"];
-       root.style.fill = otherLabelsColor;      
+       root.style.fill = otherLabelsColor;
     }
 
     if (settings.hasOwnProperty("backgroundColor") && settings["backgroundColor"]) {
        var backgroundColor = settings["backgroundColor"];
-       backgroundEl.style.fill = backgroundColor;     
+       backgroundEl.style.fill = backgroundColor;
     }
 
     if (settings.hasOwnProperty("heartColor") && settings["heartColor"]) {
        var heartColor = settings["heartColor"];
        hr.hrIconDiastoleEl.style.fill = heartColor;
-       hr.hrIconSystoleEl.style.fill = heartColor;         
+       hr.hrIconSystoleEl.style.fill = heartColor;
+    }
+
+    if (settings.hasOwnProperty("timeProgressColor") && settings["timeProgressColor"]) {
+       var timeProgressColor = settings["timeProgressColor"];
+       timeProgress.style.fill = timeProgressColor;
+       timeProgress.style.fill = timeProgressColor;
     }
 
     for (var i=0; i < activity.goalTypes.length; i++) {
@@ -131,12 +126,13 @@ export function loadSettings() {
     var defaults = {
       isHeartbeatAnimation: true,
       isFastProgress: false,
-      language: 'en'
-    };    
+      language: 'en',
+      temperatureUnit: 'f',
+    };
     
     if (units.distance === "us") {
-      defaults["distanceUnit"] = { values:[{value:"mi"}]}; 
-    }   
+      defaults["distanceUnit"] = { values:[{value:"mi"}]};
+    }
     return defaults;
   }
 }

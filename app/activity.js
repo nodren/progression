@@ -26,7 +26,7 @@ export let goalTypes = [
   "steps",
   "distance",
   "elevationGain",
-  "calories",
+  // "calories",
   "activeMinutes"
 ];
 
@@ -45,10 +45,10 @@ export let progressWidth = progressEls[0].container.getElementsByClassName("bg")
 export function drawProgress(progressEl) {
   let prefix = progressEl.prefix;
   
-  let actual = (today.local[prefix] || 0);
+  let actual = (today.adjusted[prefix] || 0);
   if (progressEl.prevProgressVal == actual) {
     return;
-  }  
+  }
   progressEl.prevProgressVal = actual;
   
   let goal = (goals[prefix] || 0);
@@ -70,7 +70,7 @@ export function drawProgress(progressEl) {
      progressEl.tgtNo.style.display = "inline";
   }
   
-  progressEl.progress.width =  Math.floor(progressWidth * progress / 100);  
+  progressEl.progress.width =  Math.floor(progressWidth * progress / 100);
   
   var displayValue = actual;
   if (prefix === "distance" && actual) {
@@ -82,10 +82,15 @@ export function drawProgress(progressEl) {
       displayValue = Math.round(actual * 3.2808); 
       goal = Math.round(goal * 3.2808);
     } else if (distanceUnit === "mi") {
-      displayValue = (actual / 1609.344).toPrecision(3);  
-      goal = (goal / 1609.344).toPrecision(3); 
+      displayValue = (actual / 1609.344).toPrecision(2);
+      goal = (goal / 1609.344).toPrecision(2); 
     }
-  }  
+  }
+  if (prefix === "steps" && actual) {
+    goal = goal / 1000
+    goal = Math.round(goal * 100)
+    goal = `${(goal / 100)}k`;
+  }
   progressEl.count.text = `${displayValue}/${goal}`;
 } 
 

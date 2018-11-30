@@ -14,20 +14,8 @@ export function deviceSetup() {
     versaSec.style.fontSize = 38;
     
     
-    var baromZone = document.getElementById('barom-zone');
-    var baromIcon = document.getElementById('barom-icon');
-    baromZone.x = 36
-    baromZone.y = 280
-    baromIcon.x = 5
-    baromIcon.y = 250
   } else { 
     console.log("ionic");
     
-    var baromZone = document.getElementById('barom-zone');
-    var baromIcon = document.getElementById('barom-icon');
-    baromZone.x = 270
-    baromZone.y = 150
-    baromIcon.x = 240
-    baromIcon.y = 130
   }
 }
