@@ -15,9 +15,9 @@ export function drawDate(now, language) {
   
   let dayName = weekday.getWeekdayName(language, now.getDay());
 
-  var dateText;  
+  var dateText;
 
-  dateText= util.zeroPad(day) + "." + util.zeroPad(monthIndex)+ "." + year;    
+  dateText= monthIndex + "." + util.zeroPad(day)+ "." + year;
 
   dayEl.text = dayName;
   dateEl.text =  dateText;

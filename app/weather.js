@@ -17,8 +17,23 @@ export function getWeather(now) {
 }
 
 function fetchWeather() {
-	weather.fetch(30 * 60 * 1000) // return the cached value if it is less than 30 minutes old 
+	// const weather = {
+	// }
+	// 	weather.description = 'Cloudy'
+	// 	weather.location = 'Seattle'
+	// 	weather.temperatureF = '43'
+	// 	weather.isDay = true
+	// 	weather.conditionCode = 3
+	// 	weatherTempLabel.text = `${Math.round(temperatureUnit == 'f' ? weather.temperatureF : weather.temperatureC)}°`
+	// 	weatherConditionLabel.text = weather.description
+	// 	weatherLocationLabel.text = weather.location
+	// 	weatherImage.href = getForecastIcon(weather.conditionCode, weather.isDay)
+	
+	weather.fetch(5 * 60 * 1000) // return the cached value if it is less than 30 minutes old 
 	.then(weather => {
+		// weather.description = 'Cloudy'
+		// weather.location = 'Seattle'
+		// weather.temperatureF = '43'
 		weatherTempLabel.text = `${Math.round(temperatureUnit == 'f' ? weather.temperatureF : weather.temperatureC)}°`
 		weatherConditionLabel.text = weather.description
 		weatherLocationLabel.text = weather.location

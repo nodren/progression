@@ -22,11 +22,11 @@
   </g>
 
   <g id="time-progress">
-    <rect class="bg"/>  
-    <circle class="tgt-no"/>  
-    <circle class="tgt-yes"/>  
-    <rect class="progress"/>    
-    <image id="calories-icon" class="icon" href="stat_duration_32px_p.png" />
+    <rect class="time-bg"/>  
+    <circle class="time-tgt-no"/>  
+    <circle class="time-tgt-yes"/>  
+    <rect class="time-progress"/>    
+    <image id="time-icon" class="time-icon" href="stat_duration_32px_p.png" />
   </g> 
   <g id="steps">
     <rect class="bg"/>  
@@ -51,6 +51,14 @@
     <rect class="progress"/>    
     <text class="count">777</text>
     <image id="elevationGain-icon" class="icon" href="stat_floors_solid_24px.png" />
+  </g>
+  <g id="calories">
+    <rect class="bg"/>  
+    <circle class="tgt-no"/>  
+    <circle class="tgt-yes"/>  
+    <rect class="progress"/>    
+    <text class="count">777</text>
+    <image id="calories-icon" class="icon" href="stat_cals_solid_24px.png" />
   </g>
   <g id="activeMinutes">
     <rect class="bg"/>  

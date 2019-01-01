@@ -84,14 +84,14 @@ export let timeLine = document.getElementById("time-line");
 
 export function drawTimeProgress(now) {
 
-  let progressWidth = timeProgress.getElementsByClassName("bg")[0].getBBox().width;
+  let progressWidth = timeProgress.getElementsByClassName("time-bg")[0].getBBox().width;
   // let level = battery.chargeLevel;
   let seconds = now.getHours() * 60 * 60;
   seconds += now.getMinutes() * 60;
   seconds += now.getSeconds()
   let timePercentage = Math.floor((seconds / 86400) * 100);
   let lineWidth = Math.floor(progressWidth*(timePercentage/100));
-  timeProgress.getElementsByClassName("progress")[0].width = lineWidth
+  timeProgress.getElementsByClassName("time-progress")[0].width = lineWidth
 }
 
 //Time Draw - END

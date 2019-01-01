@@ -26,7 +26,7 @@ export let goalTypes = [
   "steps",
   "distance",
   "elevationGain",
-  // "calories",
+  "calories",
   "activeMinutes"
 ];
 

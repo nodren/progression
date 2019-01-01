@@ -8,7 +8,7 @@
   y: 0;
   width:100%;
   height:100%;
-  fill:black;
+  fill:#000000;
 }
 
 #background-image {
@@ -119,7 +119,7 @@
 }
 
 #weather {
-  transform: translate(100%-100,110)
+  transform: translate(100%-110,110)
 }
 
 #weatherTempLabel {
@@ -147,21 +147,24 @@
 }
 
 #time-progress {
-  transform: translate(5,20);
+  transform: translate(5,0);
 }
 
 #steps {
-  transform: translate(5,55);
+  transform: translate(5,25);
 }
 
 #distance {
-  transform: translate(5,90)
+  transform: translate(5,60)
 }
 #elevationGain  {
-  transform: translate(5,125)
+  transform: translate(5,95)
+}
+#calories  {
+  transform: translate(5,130)
 }
 #activeMinutes {
-  transform: translate(5,160)
+  transform: translate(5,165)
 }
 
 #time-progress {
@@ -210,9 +213,23 @@
   width: 10;
 }
 
+.time-progress {
+  x:26;
+  y:5;
+  height: 5;
+  width: 10;
+}
+
 .bg {
   x:26;
   y:16;
+  height: 1;
+  width: 62%-24;
+}
+
+.time-bg {
+  x:26;
+  y:7;
   height: 1;
   width: 62%-24;
 }
@@ -223,6 +240,12 @@
   r: 4;
 }
 
+.time-tgt-no {
+  cx: 62%+5;
+  cy: 7;
+  r: 4;
+}
+
 .tgt-yes {
   cx: 62%+5;
   cy: 16;
@@ -230,7 +253,21 @@
   display: none;
 }
 
+.time-tgt-yes {
+  cx: 62%+5;
+  cy: 7;
+  r: 8; 
+  display: none;
+}
+
 .icon {
+  width: 20;
+  height: 20;
+  x:0;
+  y:0;
+}
+
+.time-icon {
   width: 20;
   height: 20;
   x:0;
