@@ -97,6 +97,16 @@ function mySettings(props) {
       ]}
       />
       
+      <Select
+      label="Date Format"
+      settingsKey="dateFormat"
+      options={[
+        {name:"MM.DD.YYYY", value:"us"},
+        {name:"DD.MM.YYYY", value:"uk"},
+        {name:"YYYY.MM.DD", value:"world"},
+      ]}
+      />
+      
       <Toggle
          settingsKey="isHeartbeatAnimation"
          label="Heartbeat animation"

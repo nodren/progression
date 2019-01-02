@@ -6,40 +6,36 @@ let weatherConditionLabel = document.getElementById("weatherConditionLabel");
 let weatherLocationLabel = document.getElementById("weatherLocationLabel");
 let weatherImage = document.getElementById("weatherImage");
 let lastFetch = null
-export let temperatureUnit = 'f';
-export function setTemperatureUnit(val) { temperatureUnit = val}
+let lastWeather = null
 
-export function getWeather(now) {
+export function getWeather(now, temperatureUnit) {
+	updateWeather(lastWeather, temperatureUnit)
 	if (lastFetch !== now.getMinutes()) {
 		lastFetch = now.getMinutes()
-		fetchWeather();
+		fetchWeather(temperatureUnit);
 	}
 }
 
-function fetchWeather() {
-	// const weather = {
-	// }
-	// 	weather.description = 'Cloudy'
-	// 	weather.location = 'Seattle'
-	// 	weather.temperatureF = '43'
-	// 	weather.isDay = true
-	// 	weather.conditionCode = 3
-	// 	weatherTempLabel.text = `${Math.round(temperatureUnit == 'f' ? weather.temperatureF : weather.temperatureC)}°`
-	// 	weatherConditionLabel.text = weather.description
-	// 	weatherLocationLabel.text = weather.location
-	// 	weatherImage.href = getForecastIcon(weather.conditionCode, weather.isDay)
-	
+function fetchWeather(temperatureUnit) {
 	weather.fetch(5 * 60 * 1000) // return the cached value if it is less than 30 minutes old 
 	.then(weather => {
-		// weather.description = 'Cloudy'
-		// weather.location = 'Seattle'
-		// weather.temperatureF = '43'
-		weatherTempLabel.text = `${Math.round(temperatureUnit == 'f' ? weather.temperatureF : weather.temperatureC)}°`
-		weatherConditionLabel.text = weather.description
-		weatherLocationLabel.text = weather.location
-		weatherImage.href = getForecastIcon(weather.conditionCode, weather.isDay)
+		lastWeather = weather
+		updateWeather(weather, temperatureUnit)
 	})
 	.catch(error => console.log(JSON.stringify(error)))
+}
+
+function updateWeather(weather, temperatureUnit) {
+	if (weather) {
+		weatherTempLabel.text = `${Math.round(temperatureUnit == 'f' ? weather.temperatureF : weather.temperatureC)}°`
+		if (weather.description == 'Scattered Showers') {
+			weatherConditionLabel.text = 'Scatt. Showers'
+		} else {
+			weatherConditionLabel.text = weather.description
+		}
+		weatherLocationLabel.text = weather.location
+		weatherImage.href = getForecastIcon(weather.conditionCode, weather.isDay)
+	}
 }
 
 export function getForecastIcon(code, isDay){

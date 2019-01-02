@@ -18,9 +18,9 @@ settings.loadSettings();
 display.onchange = state.applyState;
 device.deviceSetup();
 clock.ontick = (evt) => {
-  weather.getWeather(evt.date);
+  weather.getWeather(evt.date, settings.temperatureUnit);
   time.drawTime(evt.date);
-  date.drawDate(evt.date, settings.language);
+  date.drawDate(evt.date, settings.language, settings.dateFormat);
   activity.drawAllProgress();
   battery.drawBat();
 }

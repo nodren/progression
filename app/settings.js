@@ -24,6 +24,8 @@ export let settings = loadSettings();
 export let root = document.getElementById('root');
 export let backgroundEl = document.getElementById('background');
 export var language = "en";
+export var temperatureUnit = "f";
+export var dateFormat = "us";
 
 export function applySettings() {
   if (! loadSettings) {
@@ -39,7 +41,9 @@ export function applySettings() {
       time.timeEl.style.fill = settings.timeColor;
     }
     
-    weather.setTemperatureUnit((settings.hasOwnProperty("temperatureUnit") && settings.temperatureUnit.values) ? settings.temperatureUnit.values[0].value : "f");
+    temperatureUnit = (settings.hasOwnProperty("temperatureUnit") && settings.temperatureUnit.values) ? settings.temperatureUnit.values[0].value : "f";
+
+    dateFormat = (settings.hasOwnProperty("dateFormat") && settings.dateFormat.values) ? settings.dateFormat.values[0].value : "us";
     
     if (settings.hasOwnProperty("isAmPm")) {
       time.setIsAmPm(!!settings.isAmPm);

@@ -7,7 +7,7 @@ export let dayEl = document.getElementById("day");
 export let dateEl = document.getElementById("date"); 
 //Date - END
 
-export function drawDate(now, language) {
+export function drawDate(now, language, format) {
   let day = now.getDate();
   let monthIndex = now.getMonth() + 1;
   let year = now.getYear() % 100;
@@ -17,7 +17,19 @@ export function drawDate(now, language) {
 
   var dateText;
 
-  dateText= monthIndex + "." + util.zeroPad(day)+ "." + year;
+  switch (format) {
+    case 'uk':
+      dateText= day + "." + monthIndex+ "." + year;
+      break;
+    case 'world':
+      dateText = year + "." + monthIndex + "." + day;
+      break;
+    default:
+    case 'us':
+      dateText= monthIndex + "." + day+ "." + year;
+      break;
+  }
+  
 
   dayEl.text = dayName;
   dateEl.text =  dateText;
