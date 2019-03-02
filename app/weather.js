@@ -17,7 +17,7 @@ export function getWeather(now, temperatureUnit) {
 }
 
 function fetchWeather(temperatureUnit) {
-	weather.fetch(5 * 60 * 1000) // return the cached value if it is less than 30 minutes old 
+	weather.fetch(15 * 60 * 1000) // return the cached value if it is less than 30 minutes old 
 	.then(weather => {
 		lastWeather = weather
 		updateWeather(weather, temperatureUnit)

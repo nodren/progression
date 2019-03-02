@@ -2,7 +2,7 @@ import * as messaging from "messaging";
 import * as weather from 'fitbit-weather/companion'
 import { settingsStorage } from "settings";
 
-weather.setup({ provider : weather.Providers.yahoo, apiKey : '' })
+weather.setup({ provider : weather.Providers.openweathermap, apiKey : '' })
 
 settingsStorage.addEventListener("change", evt => {
   if (evt.oldValue !== evt.newValue) {
